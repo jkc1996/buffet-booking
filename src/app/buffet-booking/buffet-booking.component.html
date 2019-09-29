@@ -1,0 +1,40 @@
+<div class="container">
+	<h1>Buffet Booking</h1>
+	<form [formGroup]="buffetForm" (ngSubmit)='bookBuffet()'>
+		<div class="form-group">
+			<label for="selectbuffet">Select a Buffet</label>
+      <select formControlName="buffetName" id='selectbuffet'>
+        <option value="" disabled>select a buffet</option>
+        <option value='southindian'>south indian</option>
+        <option value='northindian'>north indian</option>
+        <option value='chinese'>chinese</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="emailid">Email address</label>
+      <input type="email" class="form-control" formControlName="emailId" id="emailid" placeholder="name@example.com">
+      <div [hidden]="buffetForm.controls.emailId.valid || buffetForm.controls.emailId.pristine">
+        <p *ngIf="buffetForm.controls.emailId.errors?.required" class="alert alert-danger">This field is required!</p>
+        <p *ngIf="buffetForm.controls.emailId.errors?.email" class="alert alert-danger">email id is not in correct format</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for='plates'>No of Plates</label>
+      <input type="text" class="form-control" formControlName="noOfPlates" id='plates'>
+      <div [hidden]="buffetForm.controls.noOfPlates.valid || buffetForm.controls.noOfPlates.pristine">
+        <p *ngIf="buffetForm.controls.noOfPlates.errors?.required" class="alert alert-danger">This field is required!</p>
+        <p *ngIf="buffetForm.controls.noOfPlates.errors?.pattern && !buffetForm.controls.noOfPlates.errors?.min" class="alert alert-danger">Only numeric value</p>
+        <p *ngIf="buffetForm.controls.noOfPlates.errors?.min" class="alert alert-danger">No should be grater than 0</p>
+      </div>
+    </div>
+   
+    <div class="form-group">
+      <label for="dates">Select Date</label>
+      <input type="date" class="form-control" formControlName="bookedOn" id='dates'>
+  </div>
+  <button class="btn btn-primary" type="submit" [disabled]='!buffetForm.valid'>Submit</button>
+  </form>
+</div>
+{{buffetForm.value | json}}
