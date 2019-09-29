@@ -1,10 +1,8 @@
 <div>
-	booking id:<br>
-  <input type="text" name="bookingid" [(ngModel)]='id'>
-  <br>
+	<label for="bookingId">Booking Id:</label>
+  <input class="input-group" id='bookingId' class="form-control" type="text" [(ngModel)]='id'>
   <button class="btn btn-primary" (click)='getdetails(id); submitted = true' [disabled]='!id'>Get Details</button>
 </div>
-
 
 <table *ngIf='submitted && bookingdata'>
   <tr>
@@ -15,6 +13,6 @@
   <tr>
     <td>{{bookingdata.login}}</td>     <!-- {{bookingdata. type}}-->
     <td>{{bookingdata.bio}}</td>            <!-- {{bookingdata. date}}-->
-    <td>{{bookingdata.company}}</td>           <!-- {{bookingdata.noOfPlates}}-->
+    <td>{{bookingdata.company}}</td>           <!-- {bookingdata.noOfPlates}}-->
   </tr>
 </table>
