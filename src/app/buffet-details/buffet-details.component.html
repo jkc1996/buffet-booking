@@ -1,5 +1,6 @@
-<div>
-	<label for="bookingId">Booking Id:</label>
+<div class='container'>
+	<div>
+		<label for="bookingId">Booking Id:</label>
   <input class="input-group" id='bookingId' class="form-control" type="text" [(ngModel)]='id'>
   <button class="btn btn-primary" (click)='getdetails(id); submitted = true' [disabled]='!id'>Get Details</button>
 </div>
@@ -16,3 +17,4 @@
     <td>{{bookingdata.company}}</td>           <!-- {bookingdata.noOfPlates}}-->
   </tr>
 </table>
+</div>
