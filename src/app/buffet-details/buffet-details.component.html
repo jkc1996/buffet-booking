@@ -1,20 +1,37 @@
-<div class='container'>
-	<div>
-		<label for="bookingId">Booking Id:</label>
-  <input class="input-group" id='bookingId' class="form-control" type="text" [(ngModel)]='id'>
-  <button class="btn btn-primary" (click)='getdetails(id); submitted = true' [disabled]='!id'>Get Details</button>
-</div>
+<div class="container">
+  <div>
+    <label for="bookingId">Booking Id:</label>
+    <input
+      class="input-group"
+      id="bookingId"
+      class="form-control"
+      type="text"
+      [(ngModel)]="id"
+    />
+    <button
+      class="btn btn-primary"
+      (click)="getdetails(id); submitted = true"
+      [disabled]="!id"
+    >
+      Get Details
+    </button>
+  </div>
 
-<table *ngIf='submitted && bookingdata'>
-  <tr>
-    <th>Buffet Type</th>
-    <th>Booked On</th>
-    <th>No of plates</th>
-  </tr>
-  <tr>
-    <td>{{bookingdata.login}}</td>     <!-- {{bookingdata. type}}-->
-    <td>{{bookingdata.bio}}</td>            <!-- {{bookingdata. date}}-->
-    <td>{{bookingdata.company}}</td>           <!-- {bookingdata.noOfPlates}}-->
-  </tr>
-</table>
+  <table *ngIf="submitted && bookingdata">
+    <tr>
+      <th>Buffet Type</th>
+      <th>Booked On</th>
+      <th>No of plates</th>
+      <th>Photo</th>
+    </tr>
+    <tr>
+      <td>{{bookingdata.login}}</td>
+      <!-- {{bookingdata. type}}-->
+      <td>{{bookingdata.bio}}</td>
+      <!-- {{bookingdata. date}}-->
+      <td>{{bookingdata.company}}</td>
+      <!-- {bookingdata.noOfPlates}}-->
+      <td><img [src]="bookingdata.avatar_url" /></td>
+    </tr>
+  </table>
 </div>
